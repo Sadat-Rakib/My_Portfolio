@@ -50,8 +50,4 @@ View the live version of the portfolio here: Live Demo
 
 This project is licensed under the MIT License.
 
-## Contact
 
-Email: mirsadatbinrakib01@gmail.com
-
-LinkedIn: linkedin.com/in/mir-sadat-bin-rakib/
