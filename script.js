@@ -1,4 +1,3 @@
-// Toggle Mobile Menu with improved behavior for mobile devices
 function toggleMenu(e) {
     if (e) e.preventDefault();
     const navbar = document.querySelector('nav');
@@ -7,7 +6,7 @@ function toggleMenu(e) {
     navbar.classList.toggle('open');
     navLinks.classList.toggle('active');
 
-    // Disable background scroll when menu is open on mobile
+   
     if (navbar.classList.contains('open')) {
         document.body.style.overflow = 'hidden';
     } else {
@@ -15,18 +14,18 @@ function toggleMenu(e) {
     }
 }
 
-// Beyond Limits Particle Configuration: Ultra‑interactive and responsive
+
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 150, // Increased density for a richer feel
+            "value": 150, 
             "density": {
                 "enable": true,
                 "value_area": 800
             }
         },
         "color": {
-            "value": "#64ffda" // Futuristic particle color
+            "value": "#64ffda" 
         },
         "shape": {
             "type": "circle",
@@ -85,11 +84,11 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse" // Repulse nearby particles on hover
+                "mode": "repulse" 
             },
             "onclick": {
                 "enable": true,
-                "mode": "push"    // Add new particles on click
+                "mode": "push"    
             },
             "resize": true
         },
@@ -122,13 +121,13 @@ particlesJS("particles-js", {
     "retina_detect": true
 });
 
-// Scroll Reveal Animation: Animate elements as they come into view
+
 document.addEventListener("DOMContentLoaded", () => {
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active'); // Add your desired animation class
+                entry.target.classList.add('active'); 
                 observer.unobserve(entry.target);
             }
         });
@@ -137,17 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(el => revealObserver.observe(el));
 });
 
-// Optional: Glitch Effect for Extra Futuristic Vibes
+
 document.querySelectorAll('.glitch').forEach(element => {
     element.addEventListener('click', () => {
         element.classList.add('glitch-effect');
         setTimeout(() => {
             element.classList.remove('glitch-effect');
-        }, 500); // Duration of the glitch effect
+        }, 500); 
     });
 });
 
-// Navbar Scroll Effect: Change navbar appearance upon scrolling
+
 window.addEventListener("scroll", () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
@@ -185,21 +184,20 @@ eduContainer.addEventListener('mousemove', (e) => {
 });
 
 
-// === Prevent Auto Scrolling on Page Load ===
 
-// Disable restoring scroll on page reload
+
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-// Remove auto jump to anchor on load
+
 window.addEventListener('load', () => {
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
 });
 
-// Prevent Auto Scrolling on Page Load
+
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
@@ -207,7 +205,7 @@ window.addEventListener('load', () => {
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
-    // Remove focus from any element to prevent vertical auto-scroll
+  
     if (document.activeElement && document.activeElement !== document.body) {
         document.activeElement.blur();
     }
