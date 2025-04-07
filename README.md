@@ -44,7 +44,7 @@ cd My_Portfolio
 ## Live Demo
 
 View the live version of the portfolio here: Live Demo
-()
+(https://sadat-rakib.github.io/My_Portfolio/)
 
 ## License
 
