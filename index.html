@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Innovative and interactive portfolio by Mir Sadat Bin Rakib, featuring full-stack web development projects.">
+    <title>Mir Sadat Bin Rakib - Portfolio</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Particles Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Mir Sadat Bin Rakib</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu(event)">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="Profile Pic.jpeg" alt="Profile Picture" />
+                </div>
+                <div class="hero-text">
+                    <h1>Hello, I'm <span class="glow">Mir Sadat Bin Rakib</span></h1>
+                    <p>
+                        I'm a passionate front-end developer with aspirations to become a full-stack developer,
+                        dedicated to crafting stunning digital experiences that harness cutting-edge technologies. Let's
+                        explore the universe of code together!
+                    </p>
+                    <div class="hero-social-icons">
+                        <a href="https://github.com/Sadat-Rakib" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mir-sadat-bin-rakib/" target="_blank" title="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://leetcode.com/u/sadat_07/" target="_blank" title="LeetCode"><i
+                                class="fas fa-code"></i></a>
+                        <a href="mailto:example@example.com" target="_blank" title="Email"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                    <div class="code-snippet">
+                        <pre><code>const developer = "Mir Sadat Bin Rakib";
+console.log("Welcome to my portfolio!");</code></pre>
+                    </div>
+                    <div class="hero-cta-buttons">
+                        <a href="#contact" class="cta-btn hero-cta">Get in Touch</a>
+                        <a href="sample-resume.pdf" download class="cta-btn hero-cta resume-btn">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+        <h2>ABOUT ME</h2>
+        <p>
+            I'm a front-end developer with aspirations to become a full-stack innovator, leveraging cutting-edge
+            technologies to create transformative digital solutions. Currently pursuing a BSc in Computing Science and
+            Mathematics at the University of Alberta, I combine creative problem-solving with technical expertise to
+            deliver exceptional user experiences. Let's revolutionize technology together!
+        </p>
+    </section>
+    <section id="skillset" class="skillset reveal">
+        <h3>What I Know</h3>
+        <ul class="skills-list">
+            <li><i class="fa-brands fa-html5"></i> HTML</li>
+            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+            <li><i class="fa-brands fa-js"></i> JavaScript</li>
+            <li><i class="fa-brands fa-react"></i> React</li>
+            <li><i class="fa-brands fa-python"></i> Python</li>
+            <li><i class="fa-brands fa-tailwind"></i> Tailwind CSS</li>
+            <li><i class="fa-brands fa-bootstrap"></i> Bootstrap</li>
+            <li><i class="fa-brands fa-figma"></i> Figma</li>
+            <li><i class="fa-brands fa-git"></i> Git &amp; GitHub</li>
+            <li><i class="fa-brands fa-vercel"></i> Vercel</li>
+        </ul>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects reveal">
+        <h2>MY PROJECTS</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Pixel Pal</h3>
+                <p>
+                    A cutting-edge web virtual AI assistant that listens to your commands and instantly opens websites
+                    and applications. Leveraging the latest web technologies, it delivers lightning-fast, intelligent
+                    responses—streamlining your workflow and redefining digital interactions.
+                    <br> <br> <strong>Technologies Used:</strong> HTML, CSS, Tailwind CSS, JavaScript, Web Speech API,
+                    Web Storage API, Web Speech Recognition API.
+                </p>
+                <a href="https://sadat-rakib.github.io/Web-AI-Assistant/" target="_blank"
+                    class="cta-btn project-btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>CodeCasCade</h3>
+                <p>
+                    An innovative computer science educational platform that empowers learners through interactive
+                    tutorials, engaging coding challenges, and a vibrant community—designed to spark creativity and
+                    build practical skills in technology.
+                    <br> <br> <strong>Technologies Used:</strong> HTML5, CSS3, Bootstrap5, JavaScript.
+                </p>
+                <a href="https://codecascade-dev-m93wljgd1gg-sadat-rakib-beta.platform.beta.sidepro.app/index.html"
+                    target="_blank" class="cta-btn project-btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education reveal">
+        <h2>EDUCATION 🎓</h2>
+        <div class="education-container">
+            <div class="education-card">
+                <div class="education-content">
+                    <h3>BSc. Computing Science & Mathematics</h3>
+                    <h4>University of Alberta 🇨🇦</h4>
+                    <span class="edu-date">Expected Graduation: 2028</span>
+                    <p><strong>Relevant Coursework:</strong> Python 🐍, Linear Algebra 📐, Calculus 📏</p>
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-content">
+                    <h3>Summer Program in Information Technology & Engineering</h3>
+                    <h4>St. Anne's College, Oxford University 🇬🇧</h4>
+                    <span class="edu-date">Jul 2023 – Aug 2023</span>
+                    <p><strong>Relevant Coursework:</strong> Data Representation 📊, AI 🤖, CyberSecurity 🔐, Computer
+                        Networking 🌐</p>
+                    <p><strong>GPA:</strong> 1st Class Honors 🏅</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Achievements Section -->
+    <section id="achievements" class="achievements reveal">
+        <h2>KEY ACHIEVEMENTS 🏆</h2>
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <div class="trophy-icon">🏅</div>
+                <h3>MetaHack Global Metaverse Hackathon 2022</h3>
+                <p>Selected among 10,000 candidates from 30 countries. Awarded full scholarship for tech skills.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="trophy-icon">🎖️</div>
+                <h3>BrightCHAMPS Talent Discovery Challenge 2021</h3>
+                <p>Top 10% of 10,000 in programming & algorithmic thinking.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="trophy-icon">🏆</div>
+                <h3>International Youth Math Challenge 2021</h3>
+                <p>Top 10% of 12,000 globally for complex problem-solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <h2>Contact</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mir Sadat Bin Rakib. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
