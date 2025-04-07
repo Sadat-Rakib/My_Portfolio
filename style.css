@@ -15,26 +15,26 @@
     --nav-height: 70px;
 }
 
-/* Global Reset & Base */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Prevent horizontal scroll & restrict touch to vertical only */
+
 html,
 body {
     overflow-x: hidden !important;
     touch-action: pan-y;
 }
 
-/* Enable smooth scroll on desktops */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Disable smooth scroll on mobile to avoid unintended vertical jumps */
+
 @media (max-width: 768px) {
     html {
         scroll-behavior: auto;
@@ -50,7 +50,7 @@ body {
     position: relative;
 }
 
-/* 1) Conic Swirl in Body Background */
+
 body::before {
     content: "";
     position: fixed;
@@ -81,7 +81,7 @@ body::before {
     }
 }
 
-/* 2) Particles Container */
+
 #particles-js {
     position: fixed;
     top: 0;
@@ -92,7 +92,7 @@ body::before {
     filter: brightness(1.5);
 }
 
-/* 3) Navbar with Neon Glow */
+
 nav {
     position: fixed;
     top: 0;
@@ -177,7 +177,7 @@ nav .nav-links li a:hover::after {
     width: 100%;
 }
 
-/* Mobile Nav */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -219,7 +219,7 @@ nav .nav-links li a:hover::after {
     }
 }
 
-/* 4) Hero Section: Enhanced Content & Social Icons */
+
 .hero {
     height: 100vh;
     display: flex;
@@ -301,7 +301,7 @@ nav .nav-links li a:hover::after {
     text-shadow: 0 0 10px var(--accent);
 }
 
-/* Larger code snippet with stronger effect */
+
 .code-snippet {
     background: var(--bg-mid);
     padding: 1.5rem;
@@ -324,7 +324,7 @@ nav .nav-links li a:hover::after {
     margin: 0;
 }
 
-/* Extra margin-top to separate from code snippet */
+
 .hero-cta {
     margin-top: 2rem;
     font-size: 1.2rem;
@@ -343,7 +343,7 @@ nav .nav-links li a:hover::after {
     box-shadow: 0 0 25px var(--accent);
 }
 
-/* 5) Section Base (About, Skills, Projects, Contact) */
+
 section {
     position: relative;
     padding: 4rem 2rem;
@@ -409,7 +409,7 @@ section {
     line-height: 1.8;
 }
 
-/* Skills Section with animated background swirl */
+
 .skillset {
     background: var(--bg-mid);
     text-align: center;
@@ -471,7 +471,7 @@ section {
     border-color: var(--accent);
 }
 
-/* Projects Section with swirling background */
+
 .projects {
     background: var(--bg-dark);
     text-align: center;
@@ -559,7 +559,7 @@ section {
     line-height: 1.6;
 }
 
-/* Enhanced Project Button Effects */
+
 .project-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -580,7 +580,7 @@ section {
     box-shadow: 0 0 20px var(--accent);
 }
 
-/* Contact Section with swirling background */
+
 .contact {
     background: var(--bg-mid);
     text-align: center;
@@ -662,7 +662,7 @@ section {
     box-shadow: 0 0 20px var(--accent);
 }
 
-/* Footer */
+
 footer {
     background: #000;
     color: var(--text-color);
@@ -675,7 +675,7 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* Scroll Reveal Animation */
+
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -687,7 +687,7 @@ footer p {
     transform: translateY(0);
 }
 
-/* Glitch Effect */
+
 .glitch-effect {
     animation: glitchAnim 0.5s;
 }
@@ -724,7 +724,7 @@ footer p {
     }
 }
 
-/* Additional Animations */
+
 @keyframes rotateBG {
     0% {
         transform: rotate(0deg);
@@ -761,7 +761,7 @@ footer p {
     }
 }
 
-/* Education Section Styling */
+
 .education-container {
     display: flex;
     overflow-x: auto;
@@ -799,7 +799,7 @@ footer p {
     margin-bottom: 1rem;
 }
 
-/* Achievements Section Styling */
+
 .achievements-container {
     display: flex;
     justify-content: center;
