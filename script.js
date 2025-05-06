@@ -6,7 +6,6 @@ function toggleMenu(e) {
     navbar.classList.toggle('open');
     navLinks.classList.toggle('active');
 
-   
     if (navbar.classList.contains('open')) {
         document.body.style.overflow = 'hidden';
     } else {
@@ -14,18 +13,97 @@ function toggleMenu(e) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
+    if (menuButton) {
+        menuButton.addEventListener('click', toggleMenu);
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbar = document.querySelector('nav');
+            navbar.classList.remove('open');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Intersection Observer for reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+});
+
+// Glitch effect
+document.querySelectorAll('.glitch').forEach(element => {
+    element.addEventListener('click', () => {
+        element.classList.add('glitch-effect');
+        setTimeout(() => {
+            element.classList.remove('glitch-effect');
+        }, 500);
+    });
+});
+
+// Scroll navbar effect
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+}, { passive: true });
+
+// Drag-scroll for education container
+const eduContainer = document.querySelector('.education-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+eduContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    eduContainer.classList.add('active');
+    startX = e.pageX - eduContainer.offsetLeft;
+    scrollLeft = eduContainer.scrollLeft;
+});
+eduContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    eduContainer.classList.remove('active');
+});
+eduContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    eduContainer.classList.remove('active');
+});
+eduContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - eduContainer.offsetLeft;
+    const walk = (x - startX) * 3;
+    eduContainer.scrollLeft = scrollLeft - walk;
+});
+
+// ParticlesJS settings
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 150, 
+            "value": 150,
             "density": {
                 "enable": true,
                 "value_area": 800
             }
         },
         "color": {
-            "value": "#64ffda" 
+            "value": "#64ffda"
         },
         "shape": {
             "type": "circle",
@@ -84,11 +162,11 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse" 
+                "mode": "repulse"
             },
             "onclick": {
                 "enable": true,
-                "mode": "push"    
+                "mode": "push"
             },
             "resize": true
         },
@@ -121,91 +199,15 @@ particlesJS("particles-js", {
     "retina_detect": true
 });
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active'); 
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-});
-
-
-document.querySelectorAll('.glitch').forEach(element => {
-    element.addEventListener('click', () => {
-        element.classList.add('glitch-effect');
-        setTimeout(() => {
-            element.classList.remove('glitch-effect');
-        }, 500); 
-    });
-});
-
-
-window.addEventListener("scroll", () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-}, { passive: true });
-
-const eduContainer = document.querySelector('.education-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-eduContainer.addEventListener('mousedown', (e) => {
-    isDown = true;
-    eduContainer.classList.add('active');
-    startX = e.pageX - eduContainer.offsetLeft;
-    scrollLeft = eduContainer.scrollLeft;
-});
-eduContainer.addEventListener('mouseleave', () => {
-    isDown = false;
-    eduContainer.classList.remove('active');
-});
-eduContainer.addEventListener('mouseup', () => {
-    isDown = false;
-    eduContainer.classList.remove('active');
-});
-eduContainer.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - eduContainer.offsetLeft;
-    const walk = (x - startX) * 3;
-    eduContainer.scrollLeft = scrollLeft - walk;
-});
-
-
-
-
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-
 
 window.addEventListener('load', () => {
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
-});
 
-
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-window.addEventListener('load', () => {
-    if (window.location.hash) {
-        history.replaceState(null, null, ' ');
-    }
-  
     if (document.activeElement && document.activeElement !== document.body) {
         document.activeElement.blur();
     }
