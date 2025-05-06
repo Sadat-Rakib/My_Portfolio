@@ -2,42 +2,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
-    
+
+    const closeMenu = () => {
+        navbar.classList.remove('open');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    const openMenu = () => {
+        navbar.classList.add('open');
+        navLinks.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+
     if (hamburger) {
         hamburger.addEventListener('click', (e) => {
             e.preventDefault();
-            navbar.classList.toggle('open');
-            navLinks.classList.toggle('active');
-
             if (navbar.classList.contains('open')) {
-                document.body.style.overflow = 'hidden';
+                closeMenu();
             } else {
-                document.body.style.overflow = '';
+                openMenu();
             }
         });
     }
 
     document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navbar.classList.remove('open');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 
+  
     document.addEventListener('click', (e) => {
         if (
             navbar.classList.contains('open') &&
             !e.target.closest('.nav-links') &&
             !e.target.closest('.hamburger')
         ) {
-            navbar.classList.remove('open');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+            closeMenu();
         }
     });
 
-    // Intersection Observer for reveal animations
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        if (navbar.classList.contains('open') && Math.abs(currentScroll - lastScrollTop) > 10) {
+            closeMenu();
+        }
+        lastScrollTop = currentScroll;
+    }, { passive: true });
+
+
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', e => {
+        touchStartY = e.changedTouches[0].screenY;
+    });
+
+    document.addEventListener('touchend', e => {
+        touchEndY = e.changedTouches[0].screenY;
+        if (Math.abs(touchEndY - touchStartY) > 50 && navbar.classList.contains('open')) {
+            closeMenu();
+        }
+    });
+
+    // Reveal effects
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -61,7 +91,7 @@ document.querySelectorAll('.glitch').forEach(element => {
     });
 });
 
-// Scroll navbar effect
+// Sticky nav on scroll
 window.addEventListener("scroll", () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
@@ -71,11 +101,9 @@ window.addEventListener("scroll", () => {
     }
 }, { passive: true });
 
-// Drag-scroll for education container
+// Drag-scroll
 const eduContainer = document.querySelector('.education-container');
-let isDown = false;
-let startX;
-let scrollLeft;
+let isDown = false, startX, scrollLeft;
 
 eduContainer.addEventListener('mousedown', (e) => {
     isDown = true;
@@ -99,122 +127,52 @@ eduContainer.addEventListener('mousemove', (e) => {
     eduContainer.scrollLeft = scrollLeft - walk;
 });
 
-// ParticlesJS settings
+// ParticlesJS
 particlesJS("particles-js", {
     "particles": {
-        "number": {
-            "value": 150,
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#64ffda"
-        },
+        "number": { "value": 150, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#64ffda" },
         "shape": {
             "type": "circle",
-            "stroke": {
-                "width": 0,
-                "color": "#fff"
-            },
-            "polygon": {
-                "nb_sides": 6
-            }
+            "stroke": { "width": 0, "color": "#fff" },
+            "polygon": { "nb_sides": 6 }
         },
         "opacity": {
-            "value": 0.5,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 1,
-                "opacity_min": 0,
-                "sync": false
-            }
+            "value": 0.5, "random": true,
+            "anim": { "enable": true, "speed": 1, "opacity_min": 0, "sync": false }
         },
         "size": {
-            "value": 4,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 20,
-                "size_min": 0.1,
-                "sync": false
-            }
+            "value": 4, "random": true,
+            "anim": { "enable": true, "speed": 20, "size_min": 0.1, "sync": false }
         },
-        "line_linked": {
-            "enable": false,
-            "distance": 150,
-            "color": "#64ffda",
-            "opacity": 0.4,
-            "width": 1
-        },
+        "line_linked": { "enable": false },
         "move": {
-            "enable": true,
-            "speed": 3,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 600
-            }
+            "enable": true, "speed": 3, "random": true,
+            "straight": false, "out_mode": "out", "bounce": false
         }
     },
     "interactivity": {
         "detect_on": "canvas",
         "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "repulse"
-            },
-            "onclick": {
-                "enable": true,
-                "mode": "push"
-            },
+            "onhover": { "enable": true, "mode": "repulse" },
+            "onclick": { "enable": true, "mode": "push" },
             "resize": true
         },
         "modes": {
-            "grab": {
-                "distance": 200,
-                "line_linked": {
-                    "opacity": 0.5
-                }
-            },
-            "bubble": {
-                "distance": 250,
-                "size": 0,
-                "duration": 2,
-                "opacity": 0,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 120,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
+            "grab": { "distance": 200, "line_linked": { "opacity": 0.5 } },
+            "bubble": { "distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3 },
+            "repulse": { "distance": 120, "duration": 0.4 },
+            "push": { "particles_nb": 4 },
+            "remove": { "particles_nb": 2 }
         }
     },
     "retina_detect": true
 });
 
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 window.addEventListener('load', () => {
-    if (window.location.hash) {
-        history.replaceState(null, null, ' ');
-    }
-
+    if (window.location.hash) history.replaceState(null, null, ' ');
     if (document.activeElement && document.activeElement !== document.body) {
         document.activeElement.blur();
     }
@@ -228,3 +186,4 @@ window.addEventListener('wheel', () => {
         document.documentElement.style.scrollBehavior = 'smooth';
     }, 250);
 });
+
