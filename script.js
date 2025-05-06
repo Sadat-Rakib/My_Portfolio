@@ -1,33 +1,40 @@
-function toggleMenu(e) {
-    if (e) e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            navbar.classList.toggle('open');
+            navLinks.classList.toggle('active');
 
-    navbar.classList.toggle('open');
-    navLinks.classList.toggle('active');
-
-    if (navbar.classList.contains('open')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuButton) {
-        menuButton.addEventListener('click', toggleMenu);
+            if (navbar.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
     }
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            const navbar = document.querySelector('nav');
             navbar.classList.remove('open');
             navLinks.classList.remove('active');
             document.body.style.overflow = '';
         });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            navbar.classList.contains('open') &&
+            !e.target.closest('.nav-links') &&
+            !e.target.closest('.hamburger')
+        ) {
+            navbar.classList.remove('open');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     // Intersection Observer for reveal animations
